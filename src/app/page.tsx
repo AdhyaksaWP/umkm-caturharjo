@@ -12,18 +12,18 @@ export default function Home() {
       <Navbar/>
 
       <section className="flex flex-1 justify-center items-center px-6">
-        <div className="w-full max-w-md animate-fade-in">
+        <div className="text-center md:text-left w-full max-w-md animate-fade-in">
           <p className="text-4xl font-bold animate-slide-in-from-left">
             Selamat Datang!
           </p>
           <p className="text-xl mt-4 animate-slide-in-from-left animate-delay-300">
             Di situs Usaha Mikro, Kecil, dan Menengah (UMKM) Kalurahan Caturharjo Sleman!
           </p>
-          <Button className="mt-4 text-xl h-14 animate-slide-in-from-left animate-delay-700 hover:scale-105 transition-all duration-300 hover:shadow-lg">
+          <Button className="mt-4 text-xl h-14 animate-slide-in-from-left animate-delay-700 hover:scale-105 transition-all duration-300 hover:shadow-lg cursor-pointer">
             <Link href='/umkm'>Telusuri UMKM</Link>
           </Button>
         </div>
-        <div className="animate-slide-in-from-right animate-delay-500 hover:scale-105 transition-transform duration-500">
+        <div className="hidden md:block animate-slide-in-from-right animate-delay-500 hover:scale-105 transition-transform duration-500">
           <Link
             href="https://www.google.com/maps/place/Caturharjo,+Sleman,+Sleman+Regency,+Special+Region+of+Yogyakarta/@-7.688155,110.3244404,14z/data=!3m1!4b1!4m6!3m5!1s0x2e7af58ed7c522ab:0x5027a76e35696b0!8m2!3d-7.6900915!4d110.3249238!16s%2Fg%2F121v8hd0?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
           >

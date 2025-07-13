@@ -3,13 +3,14 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { signIn } from 'next-auth/react';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     let formIsValid = true;
@@ -28,7 +29,23 @@ const LoginForm = () => {
     setErrors(newErrors);
 
     if (formIsValid) {
-      console.log('Form submitted:', { email, password });
+      try {
+        const res = await signIn("credentials", {
+          redirect: false,
+          email,
+          password
+        });
+
+        if (res?.error) {
+          console.error("Login failed:", res.error);
+          alert("Login failed: Email or password is incorrect.");
+        } else {
+          alert("Login successful!");
+        }
+      } catch (error) {
+        console.error("Unexpected error during login:", error);
+        alert("Something went wrong. Please try again.");
+      }
     }
   };
 

@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
 import Background from '@/components/Background';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { Input } from '@/components/ui/input';
-import UmkmPopup from '@/components/UmkmPopup';
 import UmkmPreview from '@/components/UmkmPreview';
 import { UmkmPagination } from '@/components/UmkmPagination';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, use } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import Popups from '@/components/Popups';
 
 type Props = {
-  params: {
+  params: Promise<{
     category: string;
-  };
+  }>;
 };
 
 type UMKM = {
@@ -21,13 +21,13 @@ type UMKM = {
   Nama: string;
   Tipe: string;
   Alamat: string;
-  Keterangan: string | "";
+  Keterangan: string;
+  Gambar: string;
 };
 
 const UMKMListPage = ({ params }: Props) => {
   const [umkm, setUmkm] = useState<UMKM[]>([]);
   const [selectedUmkm, setSelectedUmkm] = useState<UMKM | null>(null);
-  const [category, setCategory] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [umkmSearch, setUmkmSearch] = useState<string>("");
   
@@ -39,11 +39,7 @@ const UMKMListPage = ({ params }: Props) => {
   const per_page = searchParams.get('per_page') ?? '6';
   const searchQuery = searchParams.get('search') ?? '';
 
-
-  useEffect(() => {
-    const resolvedParams = params;
-    setCategory(resolvedParams.category);
-  }, [params]);
+  const { category } = use(params);
 
   // Initialize search input from URL params
   useEffect(() => {
@@ -119,7 +115,7 @@ const UMKMListPage = ({ params }: Props) => {
       <Background/>
       <Navbar/>
       
-      <section className={`flex-1 flex justify-center flex-col px-55 gap-5  ${selectedUmkm ? 'blur-xl' : ""}`}>
+      <section className={`flex-1 flex justify-center flex-col p-5 md:px-55 gap-5  ${selectedUmkm ? 'blur-md' : ""}`}>
         <h1 className="text-3xl">Daftar <span className='font-bold'>{category}</span></h1>
         <div className='flex justify-end items-center gap-2'>
           <div className="relative">
@@ -152,6 +148,10 @@ const UMKMListPage = ({ params }: Props) => {
                       params={{
                         id: data._id,
                         Nama: data.Nama,
+                        Tipe: data.Tipe,
+                        Alamat: data.Alamat,
+                        Keterangan: data.Keterangan,
+                        Gambar: data.Gambar
                       }}
                       onClick={() => handleUmkmClick(data)}
                     />
@@ -164,17 +164,20 @@ const UMKMListPage = ({ params }: Props) => {
               </div>
             )}
         </div>
+        <UmkmPagination params={{url: `${category}`}}></UmkmPagination>
+
       </section>
 
       {selectedUmkm && (
-        <UmkmPopup 
+        <Popups 
           params={{
-            Nama: selectedUmkm.Nama,
-            Alamat: selectedUmkm.Alamat,
-            Keterangan: selectedUmkm.Keterangan,
+            Title: selectedUmkm.Nama,
           }}
           onClose={handleClosePopup}
-        />
+        >
+          <p className='mb-3'>{selectedUmkm.Keterangan}</p>
+          <p className='text-gray-600'>Alamat: {selectedUmkm.Alamat}</p>
+        </Popups>
       )}
 
       <Footer/>   

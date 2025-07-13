@@ -12,18 +12,20 @@ export async function POST(req: Request){
 
         if (createCondition){
             try{
+                const { Nama, Tipe, Alamat, Keterangan , Gambar } = body;
                 const res = await col.insertOne({
-                    Nama: body.Nama,
-                    Tipe: body.Tipe,
-                    Alamat: body.Alamat,
-                    Keterangan: body.Keterangan
+                    Nama: Nama,
+                    Tipe: Tipe,
+                    Alamat: Alamat,
+                    Keterangan: Keterangan,
+                    Gambar: Gambar
                 })
                 if (!res) {
-                    return NextResponse.json({"erorr": res}, {"status": 500});
+                    return NextResponse.json({"error": res}, {"status": 500});
                 }
                 return NextResponse.json({"message": "Successfully created a new UMKM!"}, {"status": 201});
             } catch (e) {
-                return NextResponse.json({"erorr": e}, {"status": 500});
+                return NextResponse.json({"error": e}, {"status": 500});
             }
         }
 
@@ -39,6 +41,7 @@ export async function POST(req: Request){
             Tipe: body.Tipe,
         }
 
+        // If there were search params
         if (body.search) { 
             query.Nama = { $regex: body.search, $options: "i" }; 
         }

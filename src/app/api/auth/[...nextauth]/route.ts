@@ -16,18 +16,25 @@ export const authOptions: AuthOptions = {
                 const mongoClient = await client.connect();
                 const db = mongoClient.db("umkm");
                 const col = db.collection("admin");           
-
-                const user: any = await col.find({
-                    email: email,
-                    password: password
-                })
+                
+                const user = await col.findOne({ email: email, password: password });
 
                 if (!user){
-                    throw new Error("No user was found with email and password");
+                    return null;
                 }
 
-                return { id: user._id, email: user.email, password: user.password }
+                return { id: user._id.toString(), email: user.email, password: user.password }
             }
         })
-    ]
+    ],
+    pages: {
+        signIn: '/',
+    },
+    session: {
+        strategy: "jwt"
+    },
+    secret: process.env.NEXTAUTH_SECRET,
 }
+
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };
