@@ -9,6 +9,7 @@ import { UmkmPagination } from '@/components/UmkmPagination';
 import { useState, useEffect, useMemo, use } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Popups from '@/components/Popups';
+import Image from 'next/image'
 
 type Props = {
   params: Promise<{
@@ -172,11 +173,32 @@ const UMKMListPage = ({ params }: Props) => {
         <Popups 
           params={{
             Title: selectedUmkm.Nama,
+            Width: "max-w-screen-sm",
+            Height: "max-h-[80vh]",
           }}
           onClose={handleClosePopup}
         >
-          <p className='mb-3'>{selectedUmkm.Keterangan}</p>
-          <p className='text-gray-600'>Alamat: {selectedUmkm.Alamat}</p>
+          <div className='flex flex-col justify-center items-center'>
+          { selectedUmkm.Gambar == "" ? (
+              <Image
+                src="/shop placeholder.jpg"
+                alt='shop placeholder image'
+                width={300}
+                height={300}
+                className="!w-[320px] !h-[240px] object-fill pb-5"
+              />
+            ): (
+              <Image
+                src={selectedUmkm.Gambar}
+                alt='umkm image'
+                width={300}
+                height={300}
+                className="!w-[500px] !h-[200px] object-fill pb-5"
+              />
+            )}
+            <p className='mb-3 text-justify'>{selectedUmkm.Keterangan}</p>
+            <p className='text-gray-600'>Alamat: {selectedUmkm.Alamat}</p>
+          </div>
         </Popups>
       )}
 

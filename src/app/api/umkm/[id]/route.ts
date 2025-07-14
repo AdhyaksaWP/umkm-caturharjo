@@ -1,8 +1,15 @@
 import client from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
+import { authOptions } from "../../auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 
 export async function DELETE(req: Request, context: any) {
+  const session = await getServerSession(authOptions);
+  if (!session){
+    return NextResponse.json({"error": "Not authenticated"}, {"status": 401})
+  }
+
   const { params } = await context;
   const id = params.id;
 
@@ -24,6 +31,10 @@ export async function DELETE(req: Request, context: any) {
 }
 
 export async function PATCH(req: Request, context: any) {
+  const session = await getServerSession(authOptions);
+  if (!session){
+    return NextResponse.json({"error": "Not authenticated"}, {"status": 401})
+  }
   const { params } = await context;
   const id = params.id;
 

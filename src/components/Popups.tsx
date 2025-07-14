@@ -4,15 +4,15 @@ type Props = {
     params : {
         Title: string | null,
         Width: string,
-        Height: string,
+        Height: string
     },
     onClose: () => void,
     children: React.ReactNode
 }
 
-const Popups = ({ params: { Title, Width="w-96" , Height="w-64" },  onClose, children }: Props) => {
+const Popups = ({ params: { Title, Width="w-64" , Height="h-96" },  onClose, children }: Props) => {
   return (
-    <div className='fixed inset-0 flex items-center justify-center bg-transparent bg-opacity-50 z-50' onClick={onClose}>
+    <div className='px-5 md:px-0 fixed inset-0 flex items-center justify-center bg-transparent bg-opacity-50 z-50' onClick={onClose}>
       <div className={`${Width} ${Height} bg-white rounded-lg shadow-lg p-6`} onClick={(e) => e.stopPropagation()}>
         <div className='flex justify-between items-center mb-4'>
             <h1 className='text-xl font-bold'>{Title}</h1>

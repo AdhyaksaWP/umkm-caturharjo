@@ -113,7 +113,7 @@ export default function UMKMEntryPage() {
         </div>
         {session && (
           <Button 
-            className="mt-4 h- text-xl h-14 w-64 cursor-pointer animate-slide-in-from-left animate-delay-700 hover:scale-105 transition-all duration-300 hover:shadow-lg"
+            className="mt-4 text-xl h-14 w-64 cursor-pointer animate-slide-in-from-left animate-delay-700 hover:scale-105 transition-all duration-300 hover:shadow-lg"
             onClick={() => setShowAddUmkmPopup(true)}
           >
             Daftar UMKM
@@ -124,8 +124,8 @@ export default function UMKMEntryPage() {
         <Popups 
           params={{
             Title: "Daftar UMKM",
-            Width: "md:w-1/2", // Tailwind
-            Height: "md:h-4/5" // Tailwind
+            Width: "min-w-1/2 max-w-screen-sm",
+            Height: "max-h-[100vh]",
           }}
           onClose={handleClosePopup}>
           <form onSubmit={handleSubmit} className='flex flex-col gap-y-3'>

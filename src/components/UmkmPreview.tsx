@@ -102,13 +102,13 @@ const UmkmPreview = ({params: {id, Nama, Tipe, Alamat, Keterangan, Gambar}, onCl
             {Nama}
           </p>
         </div>
-      </div>
+      </div>  
       {showEditUmkmPopup && (
         <Popups 
           params={{
             Title: "Edit UMKM",
-            Width: "w-64 md:w-1/2", // Tailwind
-            Height: "md:h-4/5" // Tailwind
+            Width: "min-w-1/2 max-w-screen-sm",
+            Height: "max-h-[100vh]",
           }}
           onClose={handleClosePopup}>
           <form className='flex flex-col gap-y-3' onSubmit={handleSubmit}>

@@ -1,7 +1,11 @@
 import client from "@/lib/mongodb";
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
+import { authOptions } from "../auth/[...nextauth]/route";
 
 export async function POST(req: Request){
+    const session = await getServerSession(authOptions);
+    
     try {
         const mongoClient = await client.connect();
         const db = mongoClient.db("umkm");
@@ -11,6 +15,10 @@ export async function POST(req: Request){
         const createCondition = body.Tipe && body.Nama && body.Alamat && body.Keterangan && !body.Page;
 
         if (createCondition){
+            // Only authenticated users are allowed to create a new UMKM
+            if (!session){
+                return NextResponse.json({"error": "Not authenticated"}, {"status": 401})
+            }
             try{
                 const { Nama, Tipe, Alamat, Keterangan , Gambar } = body;
                 const res = await col.insertOne({
