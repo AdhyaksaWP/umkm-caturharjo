@@ -9,7 +9,7 @@ export async function POST(req: Request){
     try {
         const mongoClient = await client.connect();
         const db = mongoClient.db("umkm");
-        const col = db.collection("dummy_umkm");
+        const col = db.collection("umkm");
         
         const body = await req.json();
         const createCondition = body.Tipe && body.Nama && body.Alamat && body.Keterangan && !body.Page;

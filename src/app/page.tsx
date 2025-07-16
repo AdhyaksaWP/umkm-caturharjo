@@ -11,13 +11,13 @@ export default function Home() {
       <Background/>
       <Navbar/>
 
-      <section className="flex flex-1 justify-center items-center px-6">
+      <section className="flex flex-1 gap-x-50 justify-center items-center px-6">
         <div className="text-center md:text-left w-full max-w-md animate-fade-in">
-          <p className="text-4xl font-bold animate-slide-in-from-left">
-            Selamat Datang!
+          <p className="text-3xl md:text-5xl font-bold animate-slide-in-from-left">
+            Selamat Datang di <span className="text-blue-400">UMKM</span>  Caturharjo!
           </p>
-          <p className="text-xl mt-4 animate-slide-in-from-left animate-delay-300">
-            Di situs Usaha Mikro, Kecil, dan Menengah (UMKM) Kalurahan Caturharjo Sleman!
+          <p className="text-lg text-justify mt-4 animate-slide-in-from-left animate-delay-300">
+            Temukan dan dukung produk-produk unggulan dari para pelaku Usaha Mikro, Kecil, dan Menengah di Kalurahan Caturharjo, Sleman.
           </p>
           <Button className="mt-4 text-xl h-14 animate-slide-in-from-left animate-delay-700 hover:scale-105 transition-all duration-300 hover:shadow-lg cursor-pointer">
             <Link href='/umkm'>Telusuri UMKM</Link>

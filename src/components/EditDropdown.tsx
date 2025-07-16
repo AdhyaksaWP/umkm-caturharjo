@@ -1,20 +1,11 @@
-import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { EditIcon, Ellipsis, Trash2 } from "lucide-react"
-import { useState } from "react"
 
 type Props = {
     onEdit: () => void,
@@ -33,8 +24,8 @@ export function EditDropdown({ onEdit, onDelete }: Props) {
                     <EditIcon/>
                     Edit
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer" onClick={onDelete}>
-                    <Trash2/>
+                <DropdownMenuItem className="cursor-pointer text-red-500" onClick={onDelete}>
+                    <Trash2 className="text-red-500"/>
                     Delete
                 </DropdownMenuItem>
                 </DropdownMenuGroup>

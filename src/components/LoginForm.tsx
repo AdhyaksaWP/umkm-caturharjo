@@ -55,7 +55,9 @@ const LoginForm = () => {
       <form className='flex flex-col gap-3' onSubmit={handleSubmit} noValidate>
         <Input className='text-white' onChange={(e)=>setEmail(e.target.value)} placeholder='email'/>
         <Input className='text-white' onChange={(e)=>setPassword(e.target.value)} placeholder='password'/>
-        <Button>Submit</Button>
+        <button type='submit' className='bg-green-500 px-4 py-2 text-white rounded animate-slide-in-from-left animate-delay-700 hover:scale-105 hover:bg-green-300 transition-all duration-300 hover:shadow-lg cursor-pointer'>
+          Submit
+        </button>
       </form>
     </div>
   );

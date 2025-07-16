@@ -116,7 +116,7 @@ const UMKMListPage = ({ params }: Props) => {
       <Background/>
       <Navbar/>
       
-      <section className={`flex-1 flex justify-center flex-col p-5 md:px-55 gap-5  ${selectedUmkm ? 'blur-md' : ""}`}>
+      <section className={`flex-1 flex justify-center flex-col p-5 md:px-55 gap-5`}>
         <h1 className="text-3xl">Daftar <span className='font-bold'>{category}</span></h1>
         <div className='flex justify-end items-center gap-2'>
           <div className="relative">
