@@ -178,26 +178,16 @@ const UMKMListPage = ({ params }: Props) => {
           }}
           onClose={handleClosePopup}
         >
-          <div className='flex flex-col justify-center items-center'>
-          { selectedUmkm.Gambar == "" ? (
-              <Image
-                src="/shop placeholder.jpg"
-                alt='shop placeholder image'
-                width={300}
-                height={300}
-                className="!w-[320px] !h-[240px] object-fill pb-5"
-              />
-            ): (
-              <Image
-                src={selectedUmkm.Gambar}
-                alt='umkm image'
-                width={300}
-                height={300}
-                className="!w-[500px] !h-[200px] object-fill pb-5"
-              />
-            )}
-            <p className='mb-3 text-justify'>{selectedUmkm.Keterangan}</p>
-            <p className='text-gray-600'>Alamat: {selectedUmkm.Alamat}</p>
+          <div className="flex flex-col justify-center items-center gap-4">
+            <Image
+              src={selectedUmkm.Gambar || "/shop placeholder.jpg"}
+              alt="UMKM image"
+              width={500}
+              height={300}
+              className="w-full max-w-md h-auto rounded-md object-cover"
+            />
+            <p className="text-justify text-sm md:text-base leading-relaxed">{selectedUmkm.Keterangan}</p>
+            <p className="text-gray-600 text-sm md:text-base">Alamat: {selectedUmkm.Alamat}</p>
           </div>
         </Popups>
       )}
