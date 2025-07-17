@@ -143,6 +143,7 @@ export default function UMKMEntryPage() {
 
             <p>Gambar UMKM</p>
             <CldUploadButton
+              options={{ cloudName: "dpucorv83" }}
               uploadPreset="umkm-caturharjo" 
               onSuccess={(result) => {handleUpload(result)}}
               className="bg-black text-white px-4 py-2 rounded cursor-pointer animate-slide-in-from-left animate-delay-700 hover:scale-105  transition-all hover:bg-gray-800 duration-300 hover:shadow-lg"

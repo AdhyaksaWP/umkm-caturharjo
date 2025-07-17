@@ -15,7 +15,7 @@ export async function DELETE(req: Request, context: any) {
 
   const mongoClient = await client.connect();
   const db = mongoClient.db("umkm");
-  const col = db.collection("dummy_umkm");
+  const col = db.collection("umkm");
 
   try {
     const res = await col.deleteOne({ _id: new ObjectId(id) });
@@ -41,7 +41,7 @@ export async function PATCH(req: Request, context: any) {
   const body = await req.json();
   const mongoClient = await client.connect();
   const db = mongoClient.db("umkm");
-  const col = db.collection("dummy_umkm");
+  const col = db.collection("umkm");
 
   if (!body.Nama && !body.Tipe && !body.Alamat && !body.Keterangan) {
     return NextResponse.json({ error: "Invalid JSON format!" }, { status: 400 });
