@@ -90,7 +90,7 @@ const UmkmPreview = ({params: {id, Nama, Tipe, Alamat, Keterangan, Gambar}, onCl
           </div>
         )}
         <Image
-          src={Gambar?.trim() || "/shop placeholder.jpg"}
+          src={Gambar?.trim() || "/shop placeholder.png"}
           alt="shop image"
           width={320}
           height={150}

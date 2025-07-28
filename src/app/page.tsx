@@ -8,37 +8,74 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col">
-      <Background/>
-      <Navbar/>
+      <Background />
+      <Navbar />
 
-      <section className="flex flex-1 gap-x-50 justify-center items-center px-6">
+      <section className="flex flex-1 flex-col md:flex-row gap-12 justify-center items-center p-10">
+        {/* Text Content */}
         <div className="text-center md:text-left w-full max-w-md animate-fade-in">
           <p className="text-3xl md:text-5xl font-bold animate-slide-in-from-left">
-            Selamat Datang di <span className="text-blue-400">UMKM</span>  Caturharjo!
+            Selamat Datang di <span className="text-blue-400">UMKM</span> Caturharjo!
           </p>
           <p className="text-lg text-justify mt-4 animate-slide-in-from-left animate-delay-300">
             Temukan dan dukung produk-produk unggulan dari para pelaku Usaha Mikro, Kecil, dan Menengah di Kalurahan Caturharjo, Sleman.
           </p>
           <Button className="mt-4 text-xl h-14 animate-slide-in-from-left animate-delay-700 hover:scale-105 transition-all duration-300 hover:shadow-lg cursor-pointer">
-            <Link href='/umkm'>Telusuri UMKM</Link>
+            <Link href="/umkm">Telusuri UMKM</Link>
           </Button>
         </div>
-        <div className="hidden md:block animate-slide-in-from-right animate-delay-500 hover:scale-105 transition-transform duration-500">
-          <Link
-            href="https://www.google.com/maps/place/Caturharjo,+Sleman,+Sleman+Regency,+Special+Region+of+Yogyakarta/@-7.688155,110.3244404,14z/data=!3m1!4b1!4m6!3m5!1s0x2e7af58ed7c522ab:0x5027a76e35696b0!8m2!3d-7.6900915!4d110.3249238!16s%2Fg%2F121v8hd0?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
-          >
-            <Image
-              src="/map.svg"
-              alt="Caturharjo Map"
-              width={400}
-              height={400}
-              className="hover:brightness-110 transition-all duration-300"
-            />
-          </Link>
+
+        <div className="flex gap-x-5">
+        {/* Video */}
+          <div className=" animate-slide-in-from-right animate-delay-500 hover:scale-105 transition-transform duration-500">
+            <div className="w-[160px] h-[300px] md:w-[300px] md:h-[545px] rounded-2xl overflow-hidden shadow-lg border-4 border-black">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="w-full h-full object-fill"
+              >
+                <source src="/profile.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          {/* Images */}
+          <div className="flex flex-col gap-y-5">
+            <Link
+              href="https://www.google.com/maps/place/Caturharjo,+Sleman,+Sleman+Regency,+Special+Region+of+Yogyakarta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="w-[150px] md:w-[280px]">
+                <Image
+                  src="/map.svg"
+                  alt="Peta Caturharjo"
+                  width={300}
+                  height={300}
+                  className="w-full h-full object-fill rounded-2xl overflow-hidden shadow-lg border-4 border-black animate-slide-in-from-right animate-delay-700 hover:scale-105 transition-transform duration-500"
+                  priority
+                />
+                </div>
+            </Link>
+            <div className="w-[150px] md:w-[280px]">
+              <Image
+                src="/meeting.jpg"
+                alt="Forkal UMKM"
+                width={300}
+                height={500}
+                className="w-full h-full  object-fill rounded-2xl overflow-hidden shadow-lg border-4 border-black animate-slide-in-from-right animate-delay-700 hover:scale-105 transition-transform duration-500"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      <Footer/>
+      <Footer />
     </main>
   );
 }

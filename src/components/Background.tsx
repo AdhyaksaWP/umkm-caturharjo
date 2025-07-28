@@ -1,8 +1,16 @@
 'use client';
-
-import React from 'react';
+import React, { useMemo } from 'react';
 
 const Background = () => {
+  const particles = useMemo(() => (
+    [...Array(20)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 10}s`,
+      animationDuration: `${10 + Math.random() * 10}s`,
+    }))
+  ), []);
+
   return (
     <div className="fixed inset-0 -z-10 h-screen w-screen overflow-hidden">
       {/* Main gradient background */}
@@ -31,16 +39,11 @@ const Background = () => {
       
       {/* Moving particles */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((style, i) => (
           <div
             key={i}
             className="absolute w-2 h-2 bg-blue-400/30 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 10}s`,
-              animationDuration: `${10 + Math.random() * 10}s`,
-            }}
+            style={style}
           />
         ))}
       </div>

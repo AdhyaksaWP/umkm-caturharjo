@@ -1,7 +1,6 @@
-<svg width="549" height="608" viewBox="0 0 549 608" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect x="219" y="444" width="1" height="1" fill="url(#pattern0_28_60)"/>
-<path d="M25 72C25 44.3858 47.3858 22 75 22H499C526.614 22 549 44.3858 549 72V558C549 585.614 526.614 608 499 608H75C47.3858 608 25 585.614 25 558V72Z" fill="black"/>
-<path d="M0 50C0 22.3858 22.3858 0 50 0H474C501.614 0 524 22.3858 524 50V536C524 563.614 501.614 586 474 586H50C22.3858 586 0 563.614 0 536V50Z" fill="url(#pattern1_28_60)"/>
+<svg width="524" height="586" viewBox="0 0 524 586" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="345" y="460" width="1" height="1" fill="url(#pattern0_28_60)"/>
+<rect width="524" height="586" fill="url(#pattern1_28_60)"/>
 <rect x="255" y="230" width="63" height="63" fill="url(#pattern2_28_60)"/>
 <defs>
 <pattern id="pattern0_28_60" patternContentUnits="objectBoundingBox" width="1" height="1">

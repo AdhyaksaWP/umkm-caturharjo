@@ -180,7 +180,7 @@ const UMKMListPage = ({ params }: Props) => {
         >
           <div className="flex flex-col justify-center items-center gap-4">
             <Image
-              src={selectedUmkm.Gambar || "/shop placeholder.jpg"}
+              src={selectedUmkm.Gambar || "/shop placeholder.png"}
               alt="UMKM image"
               width={500}
               height={300}
