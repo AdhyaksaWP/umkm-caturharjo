@@ -76,7 +76,7 @@ export default function UMKMEntryPage() {
             className=" hover:scale-110 transition-all duration-300 hover:shadow-2xl"
           >
             <Image
-              src="/produk section.svg"
+              src="/Produk section.svg"
               alt="Produk Button"
               width={200}
               height={200}
@@ -89,7 +89,7 @@ export default function UMKMEntryPage() {
             className=" animate-delay-300 hover:scale-110 transition-all duration-300 hover:shadow-2xl"
           >
             <Image
-                src="/kerajinan section.svg"
+                src="/Kerajinan section.svg"
                 alt="Kerajinan Button"
                 width={200}
                 height={200}
@@ -102,7 +102,7 @@ export default function UMKMEntryPage() {
             className=" animate-delay-500 hover:scale-110 transition-all duration-300 hover:shadow-2xl"
           >
             <Image
-                src="/jasa section.svg"
+                src="/Jasa section.svg"
                 alt="Jasa Button"
                 width={200}
                 height={200}
